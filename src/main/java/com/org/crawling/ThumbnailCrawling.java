@@ -8,7 +8,7 @@ import org.jsoup.select.Elements;
 
 import java.io.IOException;
 
-public class Search {
+public class ThumbnailCrawling {
     public static void main(String[] args) {
         final String URL = "https://www.inflearn.com/courses/it-programming";
         Connection conn = Jsoup.connect(URL);
@@ -25,6 +25,7 @@ public class Search {
             e.printStackTrace();
         }
 
+        //
         try {
             Document document = conn.get();
 
