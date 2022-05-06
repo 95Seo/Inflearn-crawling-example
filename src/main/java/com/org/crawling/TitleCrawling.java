@@ -3,23 +3,22 @@ package com.org.crawling;
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
 
-public class ThumbnailCrawling {
+public class TitleCrawling {
     public static void main(String[] args) {
         final String URL = "https://www.inflearn.com/courses/it-programming";
         Connection conn = Jsoup.connect(URL);
 
         try {
             Document document = conn.get();
-            // document의 class가 swiper-lazy인 것들을 모두 get
-            Elements imageUrlElements = document.getElementsByClass("swiper-lazy");
 
-            for(Element element : imageUrlElements) {
-                System.out.println(element.attr("abs:src"));
+            Elements titleElements = document.select("div.card-content > div.course_title");
+            for(int j = 0; j < titleElements.size(); j++) {
+                final String title = titleElements.get(j).text();
+                System.out.println("강의 제목 : " + title);
             }
         } catch (IOException e) {
             e.printStackTrace();
