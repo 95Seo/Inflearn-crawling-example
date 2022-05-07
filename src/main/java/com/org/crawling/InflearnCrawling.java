@@ -24,6 +24,8 @@ public class InflearnCrawling {
     private static int idx = 1;
 
     public static void main(String[] args) {
+        System.out.println("크롤링을 시작합니다.");
+        long beforeTime = System.currentTimeMillis();
         try {
             // 개발 강의 모든 페이징 순회
             for(int i = FIRST_PAGE_INDEX; i <= LAST_PAGE_INDEX; i++) {
@@ -106,6 +108,10 @@ public class InflearnCrawling {
                     System.out.println();
                 }
             }
+            System.out.println("크롤링을 완료하였습니다.");
+            long afterTime = System.currentTimeMillis();
+            long secDiffTime = (afterTime - beforeTime)/1000;
+            System.out.println("실행시간(s) : " + secDiffTime);
         } catch (IOException e) {
             e.printStackTrace();
         }
