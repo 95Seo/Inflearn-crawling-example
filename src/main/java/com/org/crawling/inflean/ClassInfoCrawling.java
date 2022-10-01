@@ -1,4 +1,4 @@
-package com.org.crawling;
+package com.org.crawling.inflean;
 
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
@@ -7,7 +7,8 @@ import org.jsoup.select.Elements;
 
 import java.io.IOException;
 
-public class ClassInfoCrawling {
+public class
+ClassInfoCrawling {
     public static void main(String[] args) {
         final String URL = "https://www.inflearn.com/courses/it-programming";
         Connection conn = Jsoup.connect(URL);

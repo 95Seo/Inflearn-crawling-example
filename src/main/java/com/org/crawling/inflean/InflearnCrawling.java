@@ -1,4 +1,4 @@
-package com.org.crawling;
+package com.org.crawling.inflean;
 
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
