@@ -22,6 +22,12 @@ public class UwayCrawlingTemplateV4 {
 
     private static List<CategoryInfo> categoryInfos = new LinkedList<>();
 
+    private static DepartmentTemplate departmentTemplate;
+
+    private static Queue<CategoryInfo> categoryRemoveQueue = new LinkedList<>();
+
+    private static int excludeDeptCnt;
+
     // 한글 혹은 영어로 시작하나?
     private static final Pattern PATTERN2 = Pattern.compile("^\\D");
 
@@ -33,6 +39,8 @@ public class UwayCrawlingTemplateV4 {
         categoryConvertMap.put("모집인원","recruitmentCount");
         categoryConvertMap.put("지원인원","applicantsCount");
         categoryConvertMap.put("경쟁률","competitionRatio");
+        categoryConvertMap.put("성별", "sex");
+        categoryConvertMap.put("종목  ", "event");
         // 뭔 ㅄ같은 ㅡㅡ
         // 학과 홍보
         // 학과 홈페이지
@@ -41,25 +49,36 @@ public class UwayCrawlingTemplateV4 {
     public static void main(String[] args) throws IOException {
 
         // 서울여자대학교
-        String URL = "http://ratio.uwayapply.com/Sl5KOk4mSmYlJjomSnBmVGY=";
+//        String URL = "http://ratio.uwayapply.com/Sl5KOk4mSmYlJjomSnBmVGY=";
+//        String universityName = "서율여자대학교";
 
         // 동의대학교
 //        String URL = "http://ratio.uwayapply.com/Sl5KOmBWSmYlJjomSnBmVGY=";
+//        String universityName = "동의대학교";
 
         // 칼럼 5개
-        // 서울과학대학교
+        // 서울과학대학교 <- 임마는 뭐고 추천인원이 모집인원으로 나온다
 //        String URL = "http://ratio.uwayapply.com/Sl5KMDpXJkpmJSY6JkpwZlRm";
+//        String universityName = "서울과학대학교";
 
         // 선문대학교
         // 학과 홍보라는 칼럼이 있음, 경쟁률 칼럼 없음
 //        String URL = "http://ratio.uwayapply.com/Sl5KV2FhTVc6JkpmJSY6JkpwZlRm";
+//        String universityName = "선문대학교";
 
         // 서울신학대학교
         // 모집인원, 경쟁률 칼럼 없음
-//        String URL = "http://ratio.uwayapply.com/Sl5KOjAmSmYlJjomSnBmVGY=";
+        String URL = "http://ratio.uwayapply.com/Sl5KOjAmSmYlJjomSnBmVGY=";
+        String universityName = "서울신학대학교";
 
         // 강원대학교
 //        String URL = "http://ratio.uwayapply.com/Sl5KV2FOclc4OUpmJSY6JkpwZlRm";
+
+        // 성별/종목이 있음
+        // 가톨릭관동대학교
+//        String URL = "http://ratio.uwayapply.com/Sl5KcldhVlc4TjlKZiUmOiZKcGZUZg==";
+
+        departmentTemplate = new DepartmentTemplate(universityName);
 
         startCrawling(URL);
     }
@@ -83,6 +102,7 @@ public class UwayCrawlingTemplateV4 {
         for (Element table : tables) {
             Elements tableCategory = table.select("thead tr th");
 
+            log.info("{}", tableCategory);
             if (!checkCategoryValid(tableCategory)) {
                 log.info("{}", table.select("div h3").text().replace("경쟁률 현황", "") + "수집 X");
                 continue;
@@ -118,75 +138,93 @@ public class UwayCrawlingTemplateV4 {
 
     // DepartmentTemplate을 받아서 DepartmentTemplate을 다시 return하는 구조 수정해야 함
     public static void columnPolicyExecute(Elements columns) {
-        int start = 0;
-        int end = columns.size();
-        int subDeptCnt = 0;
-        if (end > categoryInfos.size()) {
+        int currentPoint = 0;
+        int staticCategoryCnt = categoryInfos.size();
+        int dynamicCategoryCnt = getSubDeptCount(columns);
+        int subDeptCnt;
+
+        // 사이즈가 크면 department 뒤에 sub 이어 붙이기
+        if ((subDeptCnt = dynamicCategoryCnt - staticCategoryCnt) > 0) {
             // columns.size()가 categoryInfos.size()보다 크다는 것은
             // 모집단위이 나누어 졌다는 것.
+            // 공식을 바꿔야 할 듯
             // 즉, columns.size() - categoryInfos.size() 만큼 모집 단위가 늘어 났다는 것을 의미한다.
-            subDeptCnt = end - categoryInfos.size();
             log.info("===========================모집단위 나눠짐===========================");
+            int deptSeq = categoryMap.get("모집단위").categorySeq;
+            for (int i = 1; i <= subDeptCnt; i++) {
+                int subDeptSeq = deptSeq + i;
+                categoryInfos.add(subDeptSeq, new CategoryInfo("서브모집단위", subDeptSeq));
+            }
         }
 
         for (CategoryInfo info : categoryInfos) {
             log.info("-------------------------");
 
-            // 카테고리가 모집단위 일때,
-            if (info.categoryIsDepartmentName()) {
-                
-            }
             // rowCount가 1이면 columns에서 꺼내옴
             // 꺼내기 전 column 의 row값을 확인 후 1 이상이면 info에 집어넣음
             // start +1
             if (info.rowCount == 1) {
-                Element column = columns.get(start++);
+                Element column = columns.get(currentPoint);
+                String data = column.text();
+                currentPoint++;
                 int row = toInteger(column.attr("rowspan"));
                 if (row > 1) {
                     log.info("업 rowCount");
                     info.rowCount = row;
-                    info.data = column.text();
+                    info.data = data;
                     // column.text()를 DepartmentTemplate에 삽입
                 }
-                log.info("{} : {} ", info.categoryName, column.text());
+                log.info("{} : {} ", info.categoryName, data);
+                if (
+                        info.categoryIsDeptName() ||
+                                info.categoryIsSubDeptName() ||
+                                info.categoryIsRecruitCount() ||
+                                info.categoryIsApplicantCount() ||
+                                info.categoryIsRatio()
+                ) {
+                    departmentTemplate.setParameter(data, info.categoryName);
+                }
             } else {
                 // info.data를 DepartmentTemplate에 삽입
                 log.info("다운 rowCount");
                 info.rowCount--;
                 log.info("{} : {} ", info.categoryName, info.data);
+                if (
+                        info.categoryIsDeptName() ||
+                                info.categoryIsSubDeptName() ||
+                                info.categoryIsRecruitCount() ||
+                                info.categoryIsApplicantCount() ||
+                                info.categoryIsRatio()
+                ) {
+                    departmentTemplate.setParameter(info.data, info.categoryName);
+                }
+            }
+
+
+            if (info.categoryIsSubDeptName()) {
+                if (info.rowCount == 1)
+                    categoryRemoveQueue.add(info);
             }
             log.info("rowCount = " + info.rowCount);
-            log.info("start = " + start);
+            log.info("currentPoint = " + currentPoint);
         }
 
-//        if (columns.size() == 4)
-//            fourColumnPolicy(columns);
-//        fiveColumnPolicy(columns);
+        for (CategoryInfo removeTarget : categoryRemoveQueue) {
+            categoryInfos.remove(removeTarget);
+        }
     }
 
-    private static void fourColumnPolicy(Elements elements) {
-        log.info("{} -- {} -- {} -- {}", elements.get(0).text(), elements.get(1).text(), elements.get(2).text(), elements.get(3).text());
-    }
-
-    private static void fiveColumnPolicy(Elements elements) {
-        log.info("{} -- {} -- {} -- {}", elements.get(1).text(), elements.get(2).text(), elements.get(3).text(), elements.get(4).text());
-    }
-
-    // 형 변환과 문자열 처리에 사용되는 메모리 체크 해보자
-    private static String exclusionMark(String str) {
-        return str.replaceAll(",", "");
-    }
-
-    private static String slideRatio(String ratio) {
-        return exclusionMark(ratio).replace(" : 1", "");
+    private static int getSubDeptCount(Elements columns) {
+        int count = 0;
+        for (CategoryInfo info : categoryInfos) {
+            if (info.rowCount > 1)
+                count += 1;
+        }
+        return columns.size() + count;
     }
 
     private static Integer toInteger(String str) {
-        return Integer.valueOf(exclusionMark(str));
-    }
-
-    private static Float toFloat(String str) {
-        return Float.valueOf(exclusionMark(str));
+        return Integer.valueOf(str);
     }
 
     private static boolean checkCategoryValid(Elements tableCategory) {
@@ -198,10 +236,10 @@ public class UwayCrawlingTemplateV4 {
                 categoryList.contains("지원인원")
         ) {
             for (int i = 0; i < categoryList.size(); i++) {
-//                categoryMap.put(
-//                        categoryList.get(i),
-//                        new CategoryInfo(categoryList.get(i), i)
-//                );
+                categoryMap.put(
+                        categoryList.get(i),
+                        new CategoryInfo(categoryList.get(i), i)
+                );
 
                 categoryInfos.add(new CategoryInfo(categoryList.get(i), i));
             }
@@ -268,8 +306,36 @@ public class UwayCrawlingTemplateV4 {
             return data;
         }
 
-        private boolean categoryIsDepartmentName() {
+        private boolean categoryIsCampus() {
+            return categoryName.equals("캠퍼스");
+        }
+
+        private boolean categoryIsUniversity() {
+            return categoryName.equals("대학");
+        }
+
+        private boolean categoryIsAdmissionType() {
+            return categoryName.equals("전형");
+        }
+
+        private boolean categoryIsDeptName() {
             return categoryName.equals("모집단위");
+        }
+
+        private boolean categoryIsSubDeptName() {
+            return categoryName.equals("서브모집단위");
+        }
+
+        private boolean categoryIsRecruitCount() {
+            return categoryName.equals("모집인원");
+        }
+
+        private boolean categoryIsApplicantCount() {
+            return categoryName.equals("지원인원");
+        }
+
+        private boolean categoryIsRatio() {
+            return categoryName.equals("경쟁률");
         }
     }
 }
