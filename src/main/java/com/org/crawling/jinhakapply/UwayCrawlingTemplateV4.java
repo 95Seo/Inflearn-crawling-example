@@ -63,7 +63,7 @@ public class UwayCrawlingTemplateV4 {
 //        String URL = "http://ratio.uwayapply.com/Sl5KMGE5OUpmJSY6JkpwZlRm";
 //        String universityName = "가톨릭꽃동네대학교";
 
-        // 감리교신학대학교 | 안할거임
+        // 감리교신학대학교 | 안함
 //        String URL = "http://ratio.uwayapply.com/Sl5KJjBNSmYlJjomSnBmVGY=";
 //        String universityName = "감리교신학대학교";
 
@@ -123,7 +123,7 @@ public class UwayCrawlingTemplateV4 {
 //        String URL = "http://ratio.uwayapply.com/Sl5KVyUmYTlKZiUmOiZKcGZUZg==";
 //        String universityName = "고신대학교";
 
-        // 공주교육대학교 | 안할거임
+        // 공주교육대학교 | 안함
 //        String URL = "http://ratio.uwayapply.com/Sl5KYDY6L3JXYTlKZiUmOiZKcGZUZg==";
 //        String universityName = "공주교육대학교";
 
@@ -204,25 +204,108 @@ public class UwayCrawlingTemplateV4 {
 //        String universityName = "목포가톨릭대학교";
 
         // 배재대학교 | 성공
-        String URL = "http://ratio.uwayapply.com/Sl5KOkxpSmYlJjomSnBmVGY=";
-        String universityName = "배재대학교";
+//        String URL = "http://ratio.uwayapply.com/Sl5KOkxpSmYlJjomSnBmVGY=";
+//        String universityName = "배재대학교";
 
-        
-        // ============================================ 성공 ============================================
-        // 서울신학대학교
-        // 모집인원, 경쟁률 칼럼 없음
+        // 배화여자대학교 | 성공
+//        String URL = "https://ratio.uwayapply.com/Sl5KOHxOYDhCSmZDQ2FMSnBmVGY";
+//        String universityName = "배화여자대학교";
+
+        // 백석대학교 | 성공
+//        String URL = "http://ratio.uwayapply.com/Sl5KOkJKZiUmOiZKcGZUZg==";
+//        String universityName = "백석대학교";
+
+        // 백석예술대학교 | 성공
+//        String URL = "http://ratio.uwayapply.com/Sl5KOjhCSk1DQ2FMSnBmVGY=";
+//        String universityName = "백석예술대학교";
+
+        // 부천대학교 | 성공
+//        String URL = "http://ratio.uwayapply.com/Sl5KTEJKZkNDYUxKcGZUZg==";
+//        String universityName = "부천대학교";
+
+        // 상명대학교(서울캠퍼스) | 성공
+//        String URL = "http://ratio.uwayapply.com/Sl5KOk0mSmYlJjomSnBmVGY=";
+//        String universityName = "상명대학교(서울캠퍼스)";
+
+        // 상명대학교(천안캠퍼스) | 성공
+//        String URL = "http://ratio.uwayapply.com/Sl5KZjpNJkpmJSY6JkpwZlRm";
+//        String universityName = "상명대학교(천안캠퍼스)";
+
+        // 상지대학교 | 성공
+//        String URL = "http://ratio.uwayapply.com/Sl5KJS9yVzgmSmYlJjomSnBmVGY=";
+//        String universityName = "상지대학교";
+
+        // 서울과학기술대학교 | 성공
+//        String URL = "http://ratio.uwayapply.com/Sl5KMDpXJkpmJSY6JkpwZlRm";
+//        String universityName = "서울과학기술대학교";
+
+        // 서울교육대학교 | 안함
+//        String URL = "http://ratio.uwayapply.com/Sl5KYDpXJkpmJSY6JkpwZlRm";
+//        String universityName = "서울교육대학교";
+
+        // 서울시립대학교 | 성공
+//        String URL = "http://ratio.uwayapply.com/Sl5KJmE6SmYlJjomSnBmVGY=";
+//        String universityName = "서울시립대학교";
+
+        // 서울신학대학교 | 성공
 //        String URL = "http://ratio.uwayapply.com/Sl5KOjAmSmYlJjomSnBmVGY=";
 //        String universityName = "서울신학대학교";
 
-        // 선문대학교
-        // 학과 홍보라는 칼럼이 있음, 경쟁률 칼럼 없음
+        // 서울여자대학교 | 성공
+//        String URL = "http://ratio.uwayapply.com/Sl5KOk4mSmYlJjomSnBmVGY=";
+//        String universityName = "서울여자대학교";
+
+        // 서울장신대학교 | 성공
+//        String URL = "http://ratio.uwayapply.com/Sl5KVyUmclc4L0M6YWAmSmYlJjomSnBmVGY=";
+//        String universityName = "서울장신대학교";
+
+        // 선문대학교 | 성공
 //        String URL = "http://ratio.uwayapply.com/Sl5KV2FhTVc6JkpmJSY6JkpwZlRm";
 //        String universityName = "선문대학교";
 
-        // 서울여자대학교
-//        String URL = "http://ratio.uwayapply.com/Sl5KOk4mSmYlJjomSnBmVGY=";
-//        String universityName = "서율여자대학교";
+        // 성신여자대학교 | 성공
+//        String URL = "http://ratio.uwayapply.com/Sl5KVyV8JnJXOiZKZiUmOiZKcGZUZg==";
+//        String universityName = "성신여자대학교";
 
+        // 세명대학교 | 성공
+//        String URL = "http://ratio.uwayapply.com/Sl5Kclc6Yk1gJkpmJSY6JkpwZlRm";
+//        String universityName = "세명대학교";
+
+        // 수원여자대학교 | 성공
+//        String URL = "http://ratio.uwayapply.com/Sl5KTE4mSmZDQ2FMSnBmVGY=";
+//        String universityName = "수원여자대학교";
+
+        // 순천향대학교 | 성공
+//        String URL = "http://ratio.uwayapply.com/Sl5KfEwmSmYlJjomSnBmVGY=";
+//        String universityName = "순천향대학교";
+
+        // 숭의여자대학교 | 성공
+//        String URL = "https://ratio.uwayapply.com/Sl5KTE5gJkpmQ0NhTEpwZlRm";
+//        String universityName = "숭의여자대학교";
+
+        // 국립안동대학교 | 성공
+//        String URL = "http://ratio.uwayapply.com/Sl5KcldhVlc4SmYlJjomSnBmVGY=";
+//        String universityName = "국립안동대학교";
+
+        // 안산대학교 | 성공
+//        String URL = "http://ratio.uwayapply.com/Sl5KVzgmVzhKZkNDYUxKcGZUZg==";
+//        String universityName = "안산대학교";
+
+        // 안양대학교 | 성공
+//        String URL = "http://ratio.uwayapply.com/Sl5Kclc4Ylc4SmYlJjomSnBmVGY=";
+//        String universityName = "안양대학교";
+
+        // 연성대학교 | 성공
+//        String URL = "https://ratio.uwayapply.com/Sl5Kclc6JldhYGJKZkNDYUxKcGZUZg";
+//        String universityName = "연성대학교";
+
+        // 연세대학교(미래캠퍼스) | 성공
+//        String URL = "http://ratio.uwayapply.com/Sl5KZiVgJldhYkpmJSY6JkpwZlRm";
+//        String universityName = "연세대학교(미래캠퍼스)";
+
+        // 영남대학교 | 성공
+        String URL = "http://ratio.uwayapply.com/Sl5KOmJKZiUmOiZKcGZUZg==";
+        String universityName = "영남대학교";
 
         // ============================================ 수정 필요 ============================================
 
@@ -237,8 +320,11 @@ public class UwayCrawlingTemplateV4 {
         // 대림대학교 | 특수케이스 경쟁률 -> 지원률 (수정 필요) | 성공
 //        String URL = "http://ratio.uwayapply.com/Sl5KTSVDYDhWSmZDQ2FMSnBmVGY=";
 //        String universityName = "대림대학교";
-        
-        
+
+        // 신안산대학교 | 특수케이스 모집단위 -> 모집학과 | 성공
+//        String URL = "http://ratio.uwayapply.com/Sl5KMEw4SmZDQ2FMSnBmVGY=";
+//        String universityName = "신안산대학교";
+
         // ============================================ 실패 ============================================
         // 서울과학대학교 <- 임마는 뭐고 추천인원이 모집인원으로 나온다
 //        String URL = "http://ratio.uwayapply.com/Sl5KMDpXJkpmJSY6JkpwZlRm";
@@ -247,6 +333,10 @@ public class UwayCrawlingTemplateV4 {
         // 대구교육대학교 | 실패
 //        String URL = "http://ratio.uwayapply.com/Sl5KYDpXVkpmJSY6JkpwZlRm";
 //        String universityName = "대구교육대학교";
+
+        // 신구대학교 | 표다름 | 안함
+//        String URL = "http://ratio.uwayapply.com/Sl5KOnJXJXwmSmZDQ2FMSnBmVGY=";
+//        String universityName = "신구대학교";
 
         
 
