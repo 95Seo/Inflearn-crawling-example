@@ -63,10 +63,6 @@ public class UwayCrawlingTemplateV4 {
 //        String URL = "http://ratio.uwayapply.com/Sl5KMGE5OUpmJSY6JkpwZlRm";
 //        String universityName = "가톨릭꽃동네대학교";
 
-        // 감리교신학대학교 | 안함
-//        String URL = "http://ratio.uwayapply.com/Sl5KJjBNSmYlJjomSnBmVGY=";
-//        String universityName = "감리교신학대학교";
-
         // 강남대학교 | 성공
 //        String URL = "http://ratio.uwayapply.com/Sl5KTThXclc4OUpmJSY6JkpwZlRm";
 //        String universityName = "강남대학교";
@@ -122,10 +118,6 @@ public class UwayCrawlingTemplateV4 {
         // 고신대학교 | 성공
 //        String URL = "http://ratio.uwayapply.com/Sl5KVyUmYTlKZiUmOiZKcGZUZg==";
 //        String universityName = "고신대학교";
-
-        // 공주교육대학교 | 안함
-//        String URL = "http://ratio.uwayapply.com/Sl5KYDY6L3JXYTlKZiUmOiZKcGZUZg==";
-//        String universityName = "공주교육대학교";
 
         // 광주교육대학교 | 성공
 //        String URL = "http://ratio.uwayapply.com/Sl5KYDY6L3JXOE45SmYlJjomSnBmVGY=";
@@ -239,10 +231,6 @@ public class UwayCrawlingTemplateV4 {
 //        String URL = "http://ratio.uwayapply.com/Sl5KMDpXJkpmJSY6JkpwZlRm";
 //        String universityName = "서울과학기술대학교";
 
-        // 서울교육대학교 | 안함
-//        String URL = "http://ratio.uwayapply.com/Sl5KYDpXJkpmJSY6JkpwZlRm";
-//        String universityName = "서울교육대학교";
-
         // 서울시립대학교 | 성공
 //        String URL = "http://ratio.uwayapply.com/Sl5KJmE6SmYlJjomSnBmVGY=";
 //        String universityName = "서울시립대학교";
@@ -321,18 +309,31 @@ public class UwayCrawlingTemplateV4 {
 //        String URL = "http://ratio.uwayapply.com/Sl5KTSVDYDhWSmZDQ2FMSnBmVGY=";
 //        String universityName = "대림대학교";
 
-        // 신안산대학교 | 특수케이스 모집단위 -> 모집학과 | 성공
+        // 신안산대학교 | 특수케이스 모집단위 -> 모집학과 (수정 필요) | 성공
 //        String URL = "http://ratio.uwayapply.com/Sl5KMEw4SmZDQ2FMSnBmVGY=";
 //        String universityName = "신안산대학교";
 
         // ============================================ 실패 ============================================
-        // 서울과학대학교 <- 임마는 뭐고 추천인원이 모집인원으로 나온다
-//        String URL = "http://ratio.uwayapply.com/Sl5KMDpXJkpmJSY6JkpwZlRm";
-//        String universityName = "서울과학대학교";
+
+        // 감리교신학대학교 | 안함
+//        String URL = "http://ratio.uwayapply.com/Sl5KJjBNSmYlJjomSnBmVGY=";
+//        String universityName = "감리교신학대학교";
+
+        // 공주교육대학교 | 안함
+//        String URL = "http://ratio.uwayapply.com/Sl5KYDY6L3JXYTlKZiUmOiZKcGZUZg==";
+//        String universityName = "공주교육대학교";
 
         // 대구교육대학교 | 실패
 //        String URL = "http://ratio.uwayapply.com/Sl5KYDpXVkpmJSY6JkpwZlRm";
 //        String universityName = "대구교육대학교";
+
+        // 서울과학대학교 <- 임마는 뭐고 추천인원이 모집인원으로 나온다
+//        String URL = "http://ratio.uwayapply.com/Sl5KMDpXJkpmJSY6JkpwZlRm";
+//        String universityName = "서울과학대학교";
+
+        // 서울교육대학교 | 안함
+//        String URL = "http://ratio.uwayapply.com/Sl5KYDpXJkpmJSY6JkpwZlRm";
+//        String universityName = "서울교육대학교";
 
         // 신구대학교 | 표다름 | 안함
 //        String URL = "http://ratio.uwayapply.com/Sl5KOnJXJXwmSmZDQ2FMSnBmVGY=";
