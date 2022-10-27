@@ -292,10 +292,161 @@ public class UwayCrawlingTemplateV4 {
 //        String universityName = "연세대학교(미래캠퍼스)";
 
         // 영남대학교 | 성공
-        String URL = "http://ratio.uwayapply.com/Sl5KOmJKZiUmOiZKcGZUZg==";
-        String universityName = "영남대학교";
+//        String URL = "http://ratio.uwayapply.com/Sl5KOmJKZiUmOiZKcGZUZg==";
+//        String universityName = "영남대학교";
+
+        // 영산대학교 | 성공
+//        String URL = "http://ratio.uwayapply.com/Sl5KOiZiSmYlJjomSnBmVGY=";
+//        String universityName = "영산대학교";
+
+        // 오산대학교 | 성공
+//        String URL = "https://ratio.uwayapply.com/Sl5KVzgmYUpmQ0NhTEpwZlRm";
+//        String universityName = "오산대학교";
+
+        // 용인대학교 | 성공
+//        String URL = "http://ratio.uwayapply.com/Sl5KVyVyV2FiSmYlJjomSnBmVGY=";
+//        String universityName = "용인대학교";
+
+        // 용인예술과학대학교 | 성공
+//        String URL = "http://ratio.uwayapply.com/Sl5KTCZiSmZDQ2FMSnBmVGY=";
+//        String universityName = "용인예술과학대학교";
+
+        // 우송대학교 | 성공
+//        String URL = "http://ratio.uwayapply.com/Sl5KcldhJmFhTkpmJSY6JkpwZlRm";
+//        String universityName = "우송대학교";
+
+        // 울산대학교 | 성공
+//        String URL = "http://ratio.uwayapply.com/Sl5KVzgmQzpKZiUmOiZKcGZUZg==";
+//        String universityName = "울산대학교";
+
+        // 원강대학교 | 성공
+//        String URL = "http://ratio.uwayapply.com/Sl5Kclc4TjlXYU5KZiUmOiZKcGZUZg==";
+//        String universityName = "원강대학교";
+
+        // 유한대학교 | 성공
+//        String URL = "http://ratio.uwayapply.com/Sl5KVzh8OmJKZkNDYUxKcGZUZg==";
+//        String universityName = "유한대학교";
+
+        // 인덕대학교 | 성공
+//        String URL = "https://ratio.uwayapply.com/Sl5KOTpWVyVKZkNDYUxKcGZUZg";
+//        String universityName = "인덕대학교";
+
+        // 인제대학교 | 성공
+//        String URL = "http://ratio.uwayapply.com/Sl5KYC9XJUpmJSY6JkpwZlRm";
+//        String universityName = "인제대학교";
+
+        // 인천가톨릭대학교 | 성공
+//        String URL = "http://ratio.uwayapply.com/Sl5KOkxMJUpmJSY6JkpwZlRm";
+//        String universityName = "인천가톨릭대학교";
+
+        // 인하대학교 | 성공
+//        String URL = "http://ratio.uwayapply.com/Sl5KOHxXJUpmJSY6JkpwZlRm";
+//        String universityName = "인하대학교";
+
+        // 전북대학교 | 성공
+//        String URL = "http://ratio.uwayapply.com/Sl5KOldCL0pmJSY6JkpwZlRm";
+//        String universityName = "전북대학교";
+
+        // 전주대학교 | 성공
+//        String URL = "http://ratio.uwayapply.com/Sl5KOi9XYWAvSmYlJjomSnBmVGY=";
+//        String universityName = "전주대학교";
+
+        // 제주대학교 | 성공
+//        String URL = "http://ratio.uwayapply.com/Sl5KOlc6L2AvSmYlJjomSnBmVGY=";
+//        String universityName = "제주대학교";
+
+        // 진주교육대학교 | 성공 <- 이거는 교대인대 되넹
+//        String URL = "http://ratio.uwayapply.com/Sl5KYDpMSmYlJjomSnBmVGY=";
+//        String universityName = "진주교육대학교";
+
+        // 청운대학교 | 성공
+//        String URL = "http://ratio.uwayapply.com/Sl5KV2FhTnJXOnxMSmYlJjomSnBmVGY=";
+//        String universityName = "청운대학교";
+
+        // 청주대학교 | 성공
+//        String URL = "http://ratio.uwayapply.com/Sl5KOi9yV2FgfExKZiUmOiZKcGZUZg==";
+//        String universityName = "청주대학교";
+
+        // 초당대학교 | 성공
+//        String URL = "http://ratio.uwayapply.com/Sl5Kclc4VmF8TEpmJSY6JkpwZlRm";
+//        String universityName = "초당대학교";
+
+        // 총신대학교 | 성공
+//        String URL = "http://ratio.uwayapply.com/Sl5KVyV8JnJXYXxMSmYlJjomSnBmVGY=";
+//        String universityName = "총신대학교";
+
+        // 평택대학교 | 성공
+//        String URL = "http://ratio.uwayapply.com/Sl5KOjBpSmYlJjomSnBmVGY=";
+//        String universityName = "평택대학교";
+
+        // 포항공과대학교 | 성공
+//        String URL = "http://ratio.uwayapply.com/Sl5KfExgMCZhaUpmJSY6JkpwZlRm";
+//        String universityName = "포항공과대학교";
+
+        // 한국기술교육대학교 | 성공
+//        String URL = "http://ratio.uwayapply.com/Sl5KfExgMDhgfWE5SmYlJjomSnBmVGY=";
+//        String universityName = "한국기술교육대학교";
+
+        // 한국외국어대학교 | 성공
+//        String URL = "http://ratio.uwayapply.com/Sl5KJmg6fEpmJSY6JkpwZlRm";
+//        String universityName = "한국외국어대학교";
+
+        // 한국해양대학교 | 성공
+//        String URL = "http://ratio.uwayapply.com/Sl5KOmFNOUpmJSY6JkpwZlRm";
+//        String universityName = "한국해양대학교";
+
+        // 한라대학교(원주) | 성공
+//        String URL = "http://ratio.uwayapply.com/Sl5KOENDOHxKZiUmOiZKcGZUZg==";
+//        String universityName = "한라대학교(원주)";
+
+        // 한림대학교 | 성공
+//        String URL = "http://ratio.uwayapply.com/Sl5KTWJDQzh8SmYlJjomSnBmVGY=";
+//        String universityName = "한림대학교";
+
+        // 한성대학교 | 성공
+//        String URL = "http://ratio.uwayapply.com/Sl5Kclc6Jlc4fEpmJSY6JkpwZlRm";
+//        String universityName = "한성대학교";
+
+        // 한세대학교 | 성공
+//        String URL = "http://ratio.uwayapply.com/Sl5KJWAmVzh8SmYlJjomSnBmVGY=";
+//        String universityName = "한세대학교";
+
+        // 한양여자대학교 | 성공
+//        String URL = "http://ratio.uwayapply.com/Sl5KVzhNYU5ifEpmQ0NhTEpwZlRm";
+//        String universityName = "한양여자대학교";
+
+        // 협성대학교 | 성공
+//        String URL = "http://ratio.uwayapply.com/Sl5Kclc6Jmk6YnxKZiUmOiZKcGZUZg==";
+//        String universityName = "협성대학교";
+
+        // 호서대학교 | 성공
+//        String URL = "http://ratio.uwayapply.com/Sl5KYWAmYXxKZiUmOiZKcGZUZg==";
+//        String universityName = "호서대학교";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         // ============================================ 수정 필요 ============================================
+
+        // 한국침례신학대학교 | 성공 <- 뭔가 값이 이상 확인 필요
+//        String URL = "http://ratio.uwayapply.com/Sl5KJjowQjlKZiUmOiZKcGZUZg==";
+//        String universityName = "한국침례신학대학교";
+
+        // 추계예술대학교 | 성공 <- 재외국민·외국인(재외국민·외국인 특별전형) 부분 (확인 필요)
+//        String URL = "http://ratio.uwayapply.com/Sl5KYGJyOnxMSmYlJjomSnBmVGY=";
+//        String universityName = "추계예술대학교";
 
         // 가톨릭관동대학교 | 특수케이스 성별/종목 (수정 필요) | 성공
 //        String URL = "http://ratio.uwayapply.com/Sl5KcldhVlc4TjlKZiUmOiZKcGZUZg==";
@@ -314,6 +465,18 @@ public class UwayCrawlingTemplateV4 {
 //        String universityName = "신안산대학교";
 
         // ============================================ 실패 ============================================
+
+        // 중앙대학교 | 실패 <- 중앙대학교 이거 한번 확인해봐야함 !!!
+//       String URL = "http://ratio.uwayapply.com/Sl5KOjhMSmYlJjomSnBmVGY=";
+//        String universityName = "중앙대학교";
+
+        // 전북교육대학교 | 실패 <- 교육대학교는 다 실패가 맞는듯
+//        String URL = "http://ratio.uwayapply.com/Sl5KYDpXL0pmJSY6JkpwZlRm";
+//        String universityName = "전북교육대학교";
+
+        // 장로회신학대학교 | 실패  <- 그냥 실행이 안됨  머고 이거
+//        String URL = "http://ratio.uwayapply.com/Sl5KJjBMaUpmJSY6JkpwZlRm";
+//        String universityName = "장로회신학대학교";
 
         // 감리교신학대학교 | 안함
 //        String URL = "http://ratio.uwayapply.com/Sl5KJjBNSmYlJjomSnBmVGY=";
@@ -339,7 +502,7 @@ public class UwayCrawlingTemplateV4 {
 //        String URL = "http://ratio.uwayapply.com/Sl5KOnJXJXwmSmZDQ2FMSnBmVGY=";
 //        String universityName = "신구대학교";
 
-        
+
 
         departmentTemplate = new DepartmentTemplate(universityName);
 
