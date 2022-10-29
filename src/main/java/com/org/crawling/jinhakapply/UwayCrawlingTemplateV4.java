@@ -445,16 +445,16 @@ public class UwayCrawlingTemplateV4 {
 //        String universityName = "한국침례신학대학교";
 
         // 추계예술대학교 | 성공 <- 재외국민·외국인(재외국민·외국인 특별전형) 부분 (확인 필요)
-//        String URL = "http://ratio.uwayapply.com/Sl5KYGJyOnxMSmYlJjomSnBmVGY=";
-//        String universityName = "추계예술대학교";
+        String URL = "http://ratio.uwayapply.com/Sl5KYGJyOnxMSmYlJjomSnBmVGY=";
+        String universityName = "추계예술대학교";
 
         // 가톨릭관동대학교 | 특수케이스 성별/종목 (수정 필요) | 성공
 //        String URL = "http://ratio.uwayapply.com/Sl5KcldhVlc4TjlKZiUmOiZKcGZUZg==";
 //        String universityName = "가톨릭관동대학교";
 
         // 국민대학교 | 특수케이스 (모집인원 -), 경쟁률 -> 지원현황 (수정 필요) (수정 완료 임시) | 성공
-        String URL = "http://ratio.uwayapply.com/Sl5KVyVNOWFhOUpmJSY6JkpwZlRm";
-        String universityName = "국민대학교";
+//        String URL = "http://ratio.uwayapply.com/Sl5KVyVNOWFhOUpmJSY6JkpwZlRm";
+//        String universityName = "국민대학교";
 
         // 대림대학교 | 특수케이스 경쟁률 -> 지원률 (수정 필요) | 성공
 //        String URL = "http://ratio.uwayapply.com/Sl5KTSVDYDhWSmZDQ2FMSnBmVGY=";
