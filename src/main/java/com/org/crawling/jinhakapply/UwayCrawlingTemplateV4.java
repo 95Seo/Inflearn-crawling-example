@@ -179,7 +179,7 @@ public class UwayCrawlingTemplateV4 {
 //        String URL = "http://ratio.uwayapply.com/Sl5KOE0lVkpmQ0NhTEpwZlRm";
 //        String universityName = "동아방송예술대학교";
 
-        // 동의대학교
+        // 동의대학교 | 성공
 //        String URL = "http://ratio.uwayapply.com/Sl5KOmBWSmYlJjomSnBmVGY=";
 //        String universityName = "동의대학교";
 
@@ -440,7 +440,7 @@ public class UwayCrawlingTemplateV4 {
 
         // ============================================ 수정 필요 ============================================
 
-        // 한국침례신학대학교 | 성공 <- 뭔가 값이 이상 확인 필요
+        // 한국침례신학대학교 | 성공 <- 뭔가 값이 이상 확인 필요 <= 좀 이상하긴 하네
 //        String URL = "http://ratio.uwayapply.com/Sl5KJjowQjlKZiUmOiZKcGZUZg==";
 //        String universityName = "한국침례신학대학교";
 
@@ -452,9 +452,9 @@ public class UwayCrawlingTemplateV4 {
 //        String URL = "http://ratio.uwayapply.com/Sl5KcldhVlc4TjlKZiUmOiZKcGZUZg==";
 //        String universityName = "가톨릭관동대학교";
 
-        // 국민대학교 | 특수케이스 (모집인원 -), 경쟁률 -> 지원현황 (수정 필요) | 성공
-//        String URL = "http://ratio.uwayapply.com/Sl5KVyVNOWFhOUpmJSY6JkpwZlRm";
-//        String universityName = "국민대학교";
+        // 국민대학교 | 특수케이스 (모집인원 -), 경쟁률 -> 지원현황 (수정 필요) (수정 완료 임시) | 성공
+        String URL = "http://ratio.uwayapply.com/Sl5KVyVNOWFhOUpmJSY6JkpwZlRm";
+        String universityName = "국민대학교";
 
         // 대림대학교 | 특수케이스 경쟁률 -> 지원률 (수정 필요) | 성공
 //        String URL = "http://ratio.uwayapply.com/Sl5KTSVDYDhWSmZDQ2FMSnBmVGY=";
@@ -466,15 +466,15 @@ public class UwayCrawlingTemplateV4 {
 
         // ============================================ 실패 ============================================
 
-        // 중앙대학교 | 실패 <- 중앙대학교 이거 한번 확인해봐야함 !!!
-//       String URL = "http://ratio.uwayapply.com/Sl5KOjhMSmYlJjomSnBmVGY=";
+        // 중앙대학교 | 성공 지원인원 => 지원자 => 개선이 필요할 듯
+//        String URL = "http://ratio.uwayapply.com/Sl5KOjhMSmYlJjomSnBmVGY=";
 //        String universityName = "중앙대학교";
 
-        // 전북교육대학교 | 실패 <- 교육대학교는 다 실패가 맞는듯
+        // 전북교육대학교 | 안함 <- 교육대학교는 다 실패가 맞는듯
 //        String URL = "http://ratio.uwayapply.com/Sl5KYDpXL0pmJSY6JkpwZlRm";
 //        String universityName = "전북교육대학교";
 
-        // 장로회신학대학교 | 실패  <- 그냥 실행이 안됨  머고 이거
+        // 장로회신학대학교 | 임시 성공  <- 임시 방편 (해걀)
 //        String URL = "http://ratio.uwayapply.com/Sl5KJjBMaUpmJSY6JkpwZlRm";
 //        String universityName = "장로회신학대학교";
 
@@ -501,9 +501,7 @@ public class UwayCrawlingTemplateV4 {
         // 신구대학교 | 표다름 | 안함
 //        String URL = "http://ratio.uwayapply.com/Sl5KOnJXJXwmSmZDQ2FMSnBmVGY=";
 //        String universityName = "신구대학교";
-
-
-
+        
         departmentTemplate = new DepartmentTemplate(universityName);
 
         startCrawling(URL);
@@ -579,63 +577,95 @@ public class UwayCrawlingTemplateV4 {
         int dynamicCategoryCnt = getSubDeptCount(columns);
         int subDeptCnt;
 
-        // 사이즈가 크면 department 뒤에 sub 이어 붙이기
-        if ((subDeptCnt = dynamicCategoryCnt - staticCategoryCnt) > 0) {
-            log.info("===========================모집단위 나눠짐===========================");
-            int deptSeq = deptCategory.getCategorySeq();
-            for (int i = 1; i <= subDeptCnt; i++) {
-                int subDeptSeq = deptSeq + i;
-                categoryInfos.add(subDeptSeq, CategoryFactory.create("서브모집단위", subDeptSeq));
-            }
-        }
-
-        // recuitSaveCnt != 0 && ratioSaveCnt != 0 이면 true
-        // toLinked가 true면 문자열 연결하세요.
-//        log.info("recuitSaveCnt = {}, ratioSaveCnt = {}", recuitSaveCnt, ratioSaveCnt);
-        boolean toLinked = (recuitSaveCnt != 0) || (ratioSaveCnt != 0);
-
-        for (Category info : categoryInfos) {
-//            log.info("-------------------------");
-
-            // rowCount 확인
-            // rowCount가 0이면 column 값을 가져와서 CategoryInfo 객체에 셋팅
-            if (info.rowCountIsZero()) {
-                Element column = columns.get(currentPoint);
-                info.setColumn(column);
-                currentPoint++;
-//                log.info("ratioRowCount1 = {}", info.getRowCount());
-            }
-
-            info.downRowCount();
-
-            if (info.isTarget()) {
-                info.setDepartmentProxyData(departmentTemplate, toLinked);
-//                departmentTemplate.setParameter(info);
-//                log.info("{} : {} ", info.getCategoryName(), info.getColumnData());
-            }
-
-            if (info instanceof RecruitmentCount) {
-                recuitSaveCnt = info.getRowCount();
-            }
-
-            if (info instanceof CompetitionRatio) {
-                if (!info.getColumnData().equals("-1")) {
-//                    log.info("ratioRowCount2 = {}", info.getRowCount());
-                    ratioSaveCnt = info.getRowCount();
+        // if (columns.size() != 0) 이 부분도 수정 해 봅시다.
+        if (columns.size() != 0) {
+            // 사이즈가 크면 department 뒤에 sub 이어 붙이기
+            if ((subDeptCnt = dynamicCategoryCnt - staticCategoryCnt) > 0) {
+                log.info("===========================모집단위 나눠짐===========================");
+                int deptSeq = deptCategory.getCategorySeq();
+                for (int i = 1; i <= subDeptCnt; i++) {
+                    int subDeptSeq = deptSeq + i;
+                    categoryInfos.add(subDeptSeq, CategoryFactory.create("서브모집단위", subDeptSeq));
                 }
             }
 
-            // instanceof -> 메서드 호출로 바꾸기
-            if (info instanceof SubDepartment) {
-                if (info.rowCountIsZero())
-                    categoryRemoveQueue.add(info);
-            }
-        }
+            // recuitSaveCnt != 0 && ratioSaveCnt != 0 이면 true
+            // toLinked가 true면 문자열 연결하세요.
+//        log.info("recuitSaveCnt = {}, ratioSaveCnt = {}", recuitSaveCnt, ratioSaveCnt);
+            boolean toLinked = (recuitSaveCnt != 0) || (ratioSaveCnt != 0);
 
-        // subDept 없애기
-        for (Category removeTarget : categoryRemoveQueue) {
-            categoryInfos.remove(removeTarget);
-            removeTarget = null;
+            for (Category info : categoryInfos) {
+//            log.info("-------------------------");
+
+                // rowCount 확인
+                // rowCount가 0이면 column 값을 가져와서 CategoryInfo 객체에 셋팅
+                if (info.rowCountIsZero()) {
+                    Element column = columns.get(currentPoint);
+                    info.setColumn(column);
+                    currentPoint++;
+//                log.info("ratioRowCount1 = {}", info.getRowCount());
+                }
+
+                info.downRowCount();
+
+                if (info.isTarget()) {
+                    info.setDepartmentProxyData(departmentTemplate, toLinked);
+//                departmentTemplate.setParameter(info);
+//                log.info("{} : {} ", info.getCategoryName(), info.getColumnData());
+                }
+
+                if (info instanceof RecruitmentCount) {
+                    recuitSaveCnt = info.getRowCount();
+                }
+
+                if (info instanceof CompetitionRatio) {
+                    if (!info.getColumnData().equals("-1")) {
+//                    log.info("ratioRowCount2 = {}", info.getRowCount());
+                        ratioSaveCnt = info.getRowCount();
+                    }
+                }
+
+                // instanceof -> 메서드 호출로 바꾸기
+                if (info instanceof SubDepartment) {
+                    if (info.rowCountIsZero())
+                        categoryRemoveQueue.add(info);
+                }
+            }
+
+            // subDept 없애기
+            for (Category removeTarget : categoryRemoveQueue) {
+                categoryInfos.remove(removeTarget);
+                removeTarget = null;
+            }
+        } else {
+            // 임시 방편
+            downRowCount();
+        }
+    }
+
+    // 임시 메서드 - 중복코드
+    private static void downRowCount() {
+        for (Category info : categoryInfos) {
+            if (!info.rowCountIsZero()) {
+                info.downRowCount();
+
+                if (info instanceof RecruitmentCount) {
+                    recuitSaveCnt = info.getRowCount();
+                }
+
+                if (info instanceof CompetitionRatio) {
+                    if (!info.getColumnData().equals("-1")) {
+//                    log.info("ratioRowCount2 = {}", info.getRowCount());
+                        ratioSaveCnt = info.getRowCount();
+                    }
+                }
+
+                // instanceof -> 메서드 호출로 바꾸기
+                if (info instanceof SubDepartment) {
+                    if (info.rowCountIsZero())
+                        categoryRemoveQueue.add(info);
+                }
+            }
         }
     }
 
@@ -665,7 +695,8 @@ public class UwayCrawlingTemplateV4 {
 //                categoryList.stream().anyMatch(s -> s.matches(DEPT_REG) && s.matches(RECURITMENT_REG) && s.matches(APPLICANT_REG))
                 categoryList.stream().anyMatch(s -> s.matches(CategoryReg.DEPARTMENT_REG.getReg())) &&
                 categoryList.stream().anyMatch(s -> s.matches(CategoryReg.RECURITMENT_COUNT_REG.getReg())) &&
-                categoryList.stream().anyMatch(s -> s.matches(CategoryReg.APPLICANTS_COUNT_REG.getReg()))
+                (categoryList.stream().anyMatch(s -> s.matches(CategoryReg.APPLICANTS_COUNT_REG1.getReg())) ||
+                categoryList.stream().anyMatch(s -> s.matches(CategoryReg.APPLICANTS_COUNT_REG2.getReg())))
         ) {
             for (int i = 0; i < categoryList.size(); i++) {
 
@@ -682,7 +713,8 @@ public class UwayCrawlingTemplateV4 {
             // 모집단위, 모집인원, 지원인원은 존재하는데,
             // 경쟁률만 없는 경우 경쟁률을 -1로 설정 해서 DB에 저장
             // 회원들 한테 보여줄 때 경쟁률 -1 이면 - 로 보여줌
-            if (categoryList.stream().noneMatch(s -> s.matches(CategoryReg.COMPETITION_RATIO_REG.getReg()))) {
+            if (categoryList.stream().noneMatch(s -> s.matches(CategoryReg.COMPETITION_RATIO_REG1.getReg())) &&
+                    categoryList.stream().noneMatch(s -> s.matches(CategoryReg.COMPETITION_RATIO_REG2.getReg()))) {
                 log.info("경쟁률 생성!!");
                 Category ratio = CategoryFactory.createRatio(Integer.MAX_VALUE);
                 categoryInfos.add(ratio);
